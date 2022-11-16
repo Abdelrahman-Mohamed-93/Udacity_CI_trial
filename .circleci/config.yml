@@ -10,7 +10,7 @@ jobs:
       - save_cache:
           key: "npm-packages"
           paths:
-            - /src/node_modules
+            - /usr/src/app/node_modules
       - run: npm run lint
   test:
     docker:
@@ -27,7 +27,7 @@ jobs:
     steps:
       - checkout
       - run: npm audit
-
+# npm audit runs without installing any dependencies, that is why I don't need any npm i or restore_cache
 workflows:
   my_workflow:
     jobs:
